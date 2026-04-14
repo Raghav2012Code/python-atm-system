@@ -5,8 +5,9 @@ entered_pin = int(input("Enter the PIN: "))
 if correct_pin == entered_pin:
     while True:
         print("1. Withdraw")
-        print("2. Check Balance")
-        print("3. Exit")
+        print("2. Deposit")
+        print("3. Check Balance")
+        print("4. Exit")
         choice = input("Enter option: ")
         if choice == "1":
             print("Hi, how much money you want to withdraw?")
@@ -26,9 +27,21 @@ if correct_pin == entered_pin:
                 print("You have " + str(acc_balance) + " remaining in your account.")
 
         elif choice == "2":
-            print("Your Balance is " + str(acc_balance))
+            print("How much money you want to deposit?")
+            amt_to_deposit = int(input("Enter amount to deposit: "))
+
+            if amt_to_deposit <= 0:
+                print("Invalid amount!")
+
+            else:
+                acc_balance = acc_balance + amt_to_deposit
+                print("You have deposited " + str(amt_to_deposit))
+                print("Your new balance is: " + str(acc_balance))
 
         elif choice == "3":
+            print("Your Balance is " + str(acc_balance))
+
+        elif choice == "4":
             print("Thank you for using ATM!")
             break
 
